@@ -89,7 +89,7 @@ namespace D_Structures_TermProject
                 int[] array = new int[userInput];
 
                 FillArray(array, userInput);
-                PrintArray(array);
+                //PrintArray(array);
                 
                 timer.Start();
                 BubbleSort(array); 
@@ -98,20 +98,20 @@ namespace D_Structures_TermProject
                 time[i] = timer.Elapsed;
                 timer.Reset();
                 
-                PrintArray(array);
+                //PrintArray(array);
             }
-            
-            System.TimeSpan totalTime = new System.TimeSpan();
+
+            double totalTime = 0.0;
 
             // I am using this to average the run time of each sort
             for (int i = 0; i < time.Length; i++)
             {
-                 totalTime += time[i];
+                 totalTime += time[i].TotalSeconds;
             }
             Console.WriteLine("Average BubbleSort() time: " + totalTime / time.Length);
 
-            Console.ReadKey();
-            Console.Clear();
+            //67Console.ReadKey();
+            //Console.Clear();
 
             // I created a new time array to determine if values were not being cleared from orignial
             System.TimeSpan[] sTime = new System.TimeSpan[1000];
@@ -123,7 +123,7 @@ namespace D_Structures_TermProject
                 int[] array = new int[userInput];
 
                 FillArray(array, userInput);
-                PrintArray(array);
+                //PrintArray(array);
 
                 timer.Start();
                 SelectionSort(array);
@@ -132,13 +132,14 @@ namespace D_Structures_TermProject
                 sTime[i] = timer.Elapsed;
                 timer.Reset();
 
-                PrintArray(array);
+                //PrintArray(array);
             }
 
+            totalTime = 0;
             // I am using this to average the run time of each sort
             for (int i = 0; i < sTime.Length; i++)
             {
-                totalTime += sTime[i];
+                totalTime += sTime[i].TotalSeconds;
             }
             Console.WriteLine("Average SelectionSort() time: " + totalTime / sTime.Length);
         }
